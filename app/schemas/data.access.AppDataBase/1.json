@@ -2,21 +2,27 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a114f37909518eeae111c5b9099a850d",
+    "identityHash": "62e3d568c7cf0295fb2974689ff9445c",
     "entities": [
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`USER_ID` TEXT NOT NULL, `user_name` TEXT, `status` INTEGER NOT NULL, `package_ID` INTEGER, `numberOfGold` REAL, PRIMARY KEY(`USER_ID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`USER_ID` TEXT, `userName` TEXT, `goldPackage` TEXT, `status` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "USER_ID",
             "columnName": "USER_ID",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "userName",
-            "columnName": "user_name",
+            "columnName": "userName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "goldPackage",
+            "columnName": "goldPackage",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -25,24 +31,10 @@
             "columnName": "status",
             "affinity": "INTEGER",
             "notNull": true
-          },
-          {
-            "fieldPath": "goldPackage.package_ID",
-            "columnName": "package_ID",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "goldPackage.gold.numberOfGold",
-            "columnName": "numberOfGold",
-            "affinity": "REAL",
-            "notNull": false
           }
         ],
         "primaryKey": {
-          "columnNames": [
-            "USER_ID"
-          ],
+          "columnNames": [],
           "autoGenerate": false
         },
         "indices": [],
@@ -50,25 +42,23 @@
       },
       {
         "tableName": "GoldPackage",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`package_ID` INTEGER NOT NULL, `numberOfGold` REAL, PRIMARY KEY(`package_ID`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`gold` TEXT, `package_ID` INTEGER NOT NULL)",
         "fields": [
+          {
+            "fieldPath": "gold",
+            "columnName": "gold",
+            "affinity": "TEXT",
+            "notNull": false
+          },
           {
             "fieldPath": "package_ID",
             "columnName": "package_ID",
             "affinity": "INTEGER",
             "notNull": true
-          },
-          {
-            "fieldPath": "gold.numberOfGold",
-            "columnName": "numberOfGold",
-            "affinity": "REAL",
-            "notNull": false
           }
         ],
         "primaryKey": {
-          "columnNames": [
-            "package_ID"
-          ],
+          "columnNames": [],
           "autoGenerate": false
         },
         "indices": [],
@@ -78,7 +68,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a114f37909518eeae111c5b9099a850d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '62e3d568c7cf0295fb2974689ff9445c')"
     ]
   }
 }

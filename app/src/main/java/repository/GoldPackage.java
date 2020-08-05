@@ -1,13 +1,10 @@
 package repository;
 
-import androidx.room.Embedded;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
 
 import java.security.PublicKey;
-@Entity
+
 public class GoldPackage {
-    @Embedded private Gold gold;
+    private Gold gold;
 
     public int getPackage_ID() {
         return package_ID;
@@ -17,7 +14,7 @@ public class GoldPackage {
         this.package_ID = package_ID;
     }
 
-    @PrimaryKey private int package_ID;
+    private int package_ID;
 
 
 
