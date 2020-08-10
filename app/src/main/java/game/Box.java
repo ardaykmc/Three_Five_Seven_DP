@@ -3,10 +3,22 @@ package game;
 public class Box {
     private Shape shape;
     private Card card;
-
-    public Box(Shape shape, Card card) {
+    private float point;
+    public Box(Shape shape, Card card, float point) {
         this.shape = shape;
         this.card = card;
+        this.point = point;
+    }
+
+    public Box(Shape shape) {
+        this.shape = shape;
+    }
+
+    public Box(float point){
+        this.point = point;
+    }
+
+    public Box() {
     }
 
     public Shape getShape() {
