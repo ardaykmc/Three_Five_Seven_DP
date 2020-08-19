@@ -17,17 +17,22 @@ public class Layout {
         layoutList = fitBoxes();
     }
     private List<List<Box>> fitBoxes(){
+        int raw = 0;
         for (List<Integer> lst : this.lists){
+            int column = 0 ;
             List<Box> boxes = new ArrayList<>();
             for (Integer i : lst){
                 if (i == 0 ){
                     boxes.add(null);
+                    column ++;
                 }else{
-                    Box box = new Box(20);
+                    Box box = new Box(20,raw,column);
                     boxes.add(box);
+                    column++;
                 }
             }
             boxList.add(boxes);
+            raw++;
         }
         return boxList;
     }
