@@ -2,10 +2,10 @@ package game.rules;
 
 import game.Movement;
 
-public class Rules {
+public class Rule {
     private Movement movement;
 
-    public Rules(Movement movement) {
+    public Rule(Movement movement) {
         this.movement = movement;
     }
 

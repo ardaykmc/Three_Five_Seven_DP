@@ -5,7 +5,7 @@ import java.util.List;
 import game.Box;
 import game.Movement;
 
-public class SameRawRule extends Rules implements IRule {
+public class SameRawRule extends Rule implements IRule {
     public SameRawRule(Movement movement) {
         super(movement);
     }
