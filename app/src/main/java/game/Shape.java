@@ -1,5 +1,7 @@
 package game;
 
+import java.util.Objects;
+
 public class Shape {
     private int width;
     private int height;
@@ -24,4 +26,15 @@ public class Shape {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Shape shape = (Shape) o;
+        return width == shape.width &&
+                height == shape.height;
+    }
+
+
 }
