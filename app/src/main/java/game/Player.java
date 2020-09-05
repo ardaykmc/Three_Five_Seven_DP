@@ -10,7 +10,7 @@ public class Player {
     private IUser user;
     private double score;
     private boolean isTurn;
-
+    private Movement movement;
     public Player(List<Card> cardList, IUser user, boolean isTurn) {
         this.cardList = cardList;
         this.user = user;
@@ -51,4 +51,5 @@ public class Player {
     public List<Card> getCardList() {
         return cardList;
     }
+
 }

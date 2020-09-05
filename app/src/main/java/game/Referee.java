@@ -22,8 +22,8 @@ public class Referee {
     }
 
     /**
-     *
-     * @return true if there is no box left on layout
+     * The winning condition of games is left the last box to your opponent
+     * @return true if there is a box left on layout
      */
     private boolean checkEndOfGame(){
         int counter  = 0 ;
@@ -33,7 +33,7 @@ public class Referee {
                     counter++;
             }
         }
-        return counter == 0;
+        return counter == 1;
     }
 
     /**
@@ -51,7 +51,13 @@ public class Referee {
         }
         return result;
     }
-    private void giveScore(Player player, Movement movement){
+
+    /**
+     * Check the user moves if it is acceptable it will calculate the corresponding point and assign it as new score of user otherwise gives error
+     * @param player that gives and updates score of users
+     * @param movement takes the movement elment that will be check availability
+     */
+    private void giveScore(Player player, Movement movement) throws InvalidMovementException{
         if (checkMoves(movement)){
             List<Box> boxList  = movement.getChosenElement();
             double point = 0;
@@ -67,8 +73,25 @@ public class Referee {
         }
 
     }
-    private void initGame(){
+
+    private void startGame(){
+        /**
+         * This is the initial condition first user gonna start to the game
+         */
         this.gameBoard.getPlayer1().setTurn(true);
         this.gameBoard.getPlayer2().setTurn(false);
+        /**
+         * Main loop of the game
+         */
+        while(checkEndOfGame() != true){
+            /**
+             * if the current turn is belong first player, first player makes move other wise second player makes move
+             */
+            if (this.gameBoard.getPlayer1().isTurn()){
+
+            }else{
+
+            }
+        }
     }
 }
