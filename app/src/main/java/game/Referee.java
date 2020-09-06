@@ -1,11 +1,16 @@
 package game;
 
 import android.content.Context;
+import android.content.Intent;
+
+import com.example.three_five_seven_dp.MainActivity;
+import com.example.three_five_seven_dp.testact;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+
 
 import exception.InvalidMovementException;
 import game.rules.IRule;
@@ -74,24 +79,4 @@ public class Referee {
 
     }
 
-    private void startGame(){
-        /**
-         * This is the initial condition first user gonna start to the game
-         */
-        this.gameBoard.getPlayer1().setTurn(true);
-        this.gameBoard.getPlayer2().setTurn(false);
-        /**
-         * Main loop of the game
-         */
-        while(checkEndOfGame() != true){
-            /**
-             * if the current turn is belong first player, first player makes move other wise second player makes move
-             */
-            if (this.gameBoard.getPlayer1().isTurn()){
-
-            }else{
-
-            }
-        }
-    }
 }

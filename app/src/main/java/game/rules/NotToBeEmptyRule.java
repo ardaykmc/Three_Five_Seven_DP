@@ -5,6 +5,7 @@ import java.util.List;
 import game.Box;
 import game.Layout;
 import game.Movement;
+import helper.CountNonNullElementInListOfList;
 import helper.ListOfListCopier;
 
 public class NotToBeEmptyRule extends Rule implements IRule {
@@ -15,16 +16,13 @@ public class NotToBeEmptyRule extends Rule implements IRule {
     }
     @Override
     public boolean isValid() {
-
-        this.getMovement().getChosenElement();
-        return false;
+        return checkLayout();
     }
 
     private boolean checkLayout(){
-        List<List<Box>> layoutList ;
-        ListOfListCopier listOfListCopier = new ListOfListCopier();
-        layoutList = listOfListCopier.getCopyList(this.layout.getLayoutList());
-
+        CountNonNullElementInListOfList countNonNullElementInListOfList = new CountNonNullElementInListOfList(this.getMovement().getChosenElement());
+        int countOfBoxes =countNonNullElementInListOfList.count();
+        return countOfBoxes - this.getMovement().getChosenElement().size() != 0;
     }
 
 }

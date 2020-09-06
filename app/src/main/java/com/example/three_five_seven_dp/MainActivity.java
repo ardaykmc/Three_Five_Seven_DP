@@ -6,6 +6,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,22 +27,34 @@ public class MainActivity extends AppCompatActivity {
 
     private DBManager dbManager;
 
-
+    boolean isSign = true;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        User user = new User("arda ", true);
-        try {
-            LayoutCreator layoutCreator = new LayoutCreator("test.txt",this);
-            List<List> result  = layoutCreator.separate();
-            for (List<Integer> lstdegr : result){
-                Log.d("MY APP", lstdegr.toString());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.d("MY APP","qwe");
-        }
-
+        dbManager = new DBManager(this);
     }
 
+    /**
+     * Redirect user to sign up page if not already registered otherwise redirect to game page
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        try {
+            dbManager.open();
+            Cursor cursor = dbManager.fetch();
+            IUser user = new User("first user",false);
+            //dbManager.insert(user.getUserName(),"first guy");
+            cursor.moveToLast();
+            dbManager.close();
+            if (cursor.getString(1) == null || cursor.getString(1) == ""){
+                Log.d("My App","false");
+            }else{
+                Log.d("My App","true");
+            }
+            Log.d("My App",cursor.getString(1));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
