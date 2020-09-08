@@ -1,20 +1,14 @@
 package game;
 
 import android.content.Context;
-import android.content.Intent;
-
-import com.example.three_five_seven_dp.MainActivity;
-import com.example.three_five_seven_dp.testact;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
 
 
 import exception.InvalidMovementException;
 import game.rules.IRule;
-import game.rules.Rule;
 
 public class Referee {
     private GameBoard gameBoard;
