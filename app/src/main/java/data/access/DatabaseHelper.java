@@ -13,7 +13,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String _ID = "_id";
     public static final String USER_NAME = "user_name";
     public static final String NUMBER_OF_GOLD = "number_of_gold";
-
+    public static final String NUMBER_OF_WIN = "number_of_win";
+    public static final String NUMBER_OF_LOSE = "number_of_lose";
+    public static final String NUMBER_OF_STAR = "number_of_star";
     // Database Information
     static final String DB_NAME = "GAME.DB";
 
@@ -22,7 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Creating table query
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + USER_NAME + " TEXT NOT NULL, " + NUMBER_OF_GOLD + " TEXT);";
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + USER_NAME + " TEXT NOT NULL, " + NUMBER_OF_GOLD + " TEXT, " + NUMBER_OF_WIN +" TEXT, " + NUMBER_OF_LOSE + " TEXT, " + NUMBER_OF_STAR +" TEXT);";
 
     public DatabaseHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);

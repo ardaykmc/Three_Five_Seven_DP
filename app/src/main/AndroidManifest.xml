@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LandingPageRegisteredUser"></activity>
+        <activity android:name=".GameBoard"></activity>
+        <activity android:name=".MapSelectionScreen" />
+        <activity android:name=".LandingPageUnRegisteredUser" />
+        <activity android:name=".LandingPageRegisteredUser" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

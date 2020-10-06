@@ -44,30 +44,27 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        try {
-            dbManager.open();
-            Cursor cursor = dbManager.fetch();
-            IUser user = new User("first user",false);
-            //dbManager.insert(user.getUserName(),"first guy");
-            cursor.moveToLast();
-            dbManager.close();
-            Intent intent = new Intent(this,LandingPageRegisteredUser.class);
-            if (cursor.getString(1) == null || cursor.getString(1) == ""){
-                Log.d("My App","false");
-                startActivity(intent);
-            }else{
-                Log.d("My App","true");
-                startActivity(intent);
-            }
-            Log.d("My App",cursor.getString(1));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        try {
+            dbManager.open();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (dbManager.fetch() != null) {
+
+            Intent intent = new Intent(this, LandingPageRegisteredUser.class);
+            startActivity(intent);
+        }else {
+            Intent intent = new Intent(this, LandingPageUnRegisteredUser.class);
+            startActivity(intent);
+
+        }
+
     }
 
     @Override

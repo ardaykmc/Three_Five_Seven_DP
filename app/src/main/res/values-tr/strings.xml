@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ÜÇ BEŞ YEDİ</string>
+    <string name="label">HOME</string>
     <string name="play">OYNA</string>
     <string name="user_name">KULLANICI ADI</string>
+    <string name="user_login_ask_name">Kullanıcı Adınızı Girin</string>
+    <string name="register">KAYDOL</string>
+    <string name="start">BAŞLA</string>
+    <string name="rockLisance">"<a href="https://www.freepik.com/vectors/light">Light vector created by brgfx - www.freepik.com</a>"</string>
+    <string name="LicanceBG"><a href='https://www.freepik.com/vectors/background'>Background vector created by Creative_hat - www.freepik.com</a></string>
 </resources>

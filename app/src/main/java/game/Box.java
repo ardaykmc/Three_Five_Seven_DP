@@ -2,6 +2,7 @@ package game;
 
 import android.os.Build;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import java.util.Objects;
@@ -107,4 +108,9 @@ public class Box implements ICopyConstructor<Box>{
                 Objects.equals(shape, box.shape);
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "Row : " + this.raw;
+    }
 }

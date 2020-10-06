@@ -9,6 +9,8 @@ import android.database.Cursor;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import androidx.room.Database;
+
 public class DBManager {
 
     private DatabaseHelper dbHelper;
@@ -31,10 +33,13 @@ public class DBManager {
         dbHelper.close();
     }
 
-    public void insert(String name, String desc) {
+    public void insert(String name, String numberOfGold, String numberOfWin, String numberOfLose, String numberOfStar) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(DatabaseHelper.USER_NAME, name);
-        contentValue.put(DatabaseHelper.NUMBER_OF_GOLD, desc);
+        contentValue.put(DatabaseHelper.NUMBER_OF_GOLD, numberOfGold);
+        contentValue.put(DatabaseHelper.NUMBER_OF_WIN, numberOfWin);
+        contentValue.put(DatabaseHelper.NUMBER_OF_LOSE, numberOfLose);
+        contentValue.put(DatabaseHelper.NUMBER_OF_STAR, numberOfStar);
         database.insert(DatabaseHelper.TABLE_NAME, null, contentValue);
     }
 
@@ -47,16 +52,25 @@ public class DBManager {
         return cursor;
     }
 
-    public int update(long _id, String name, String desc) {
+    public int update(long _id, String name, String numberOfGold, String numberOfWin, String numberOfLose, String numberOfStar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseHelper.USER_NAME, name);
-        contentValues.put(DatabaseHelper._ID, desc);
+        contentValues.put(DatabaseHelper.NUMBER_OF_GOLD, numberOfGold);
+        contentValues.put(DatabaseHelper.NUMBER_OF_WIN, numberOfWin);
+        contentValues.put(DatabaseHelper.NUMBER_OF_LOSE, numberOfLose);
+        contentValues.put(DatabaseHelper.NUMBER_OF_STAR,numberOfStar);
         int i = database.update(DatabaseHelper.TABLE_NAME, contentValues, DatabaseHelper._ID + " = " + _id, null);
         return i;
     }
 
     public void delete(long _id) {
         database.delete(DatabaseHelper.TABLE_NAME, DatabaseHelper._ID + "=" + _id, null);
+    }
+    public void clearDB(){
+        Cursor cursor = this.fetch();
+        while (cursor != null){
+            delete(0);
+        }
     }
 
 }

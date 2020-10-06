@@ -1,49 +1,84 @@
-    package com.example.three_five_seven_dp;
+package com.example.three_five_seven_dp;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.dynamicanimation.animation.DynamicAnimation;
-import androidx.dynamicanimation.animation.SpringAnimation;
-import androidx.dynamicanimation.animation.SpringForce;
+import androidx.dynamicanimation.animation.FlingAnimation;
 
 import android.animation.ObjectAnimator;
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Interpolator;
 import android.graphics.Path;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.PathInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.sql.SQLException;
+import java.sql.Time;
+import java.util.List;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import animation.AnimationProvider;
+import data.access.DBManager;
 
-    public class LandingPageRegisteredUser extends AppCompatActivity {
+public class LandingPageRegisteredUser extends AppCompatActivity {
+    private float height ;
+    private float width ;
+    private TextView textView;
+    private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page_registered_user);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        height = displayMetrics.heightPixels;
+        width = displayMetrics.widthPixels;
+        textView = (TextView) findViewById(R.id.editTextUserName);
+        button = (Button) findViewById(R.id.buttonRegister);
     }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
+    protected void onStart() {
+        super.onStart();
+        DBManager dbManager = new DBManager(this);
+        try {
+            dbManager.open();
+            dbManager.insert(textView.getText().toString(),"100","0","0","0");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     protected void onResume() {
-        View view =findViewById(R.id.btn1);
-        Button button = (Button) view;
-        Path path = new Path();
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        float height = displayMetrics.heightPixels;
-        float width = displayMetrics.widthPixels;
-        AnimationProvider.rectangularMove(button,path,width-200,height-300,-30,0,15,15, Path.Direction.CCW,8000);
-        AnimationProvider.rotatingViews(button,button.getPivotX(),button.getPivotY());
         super.onResume();
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMapScreen();
+            }
+        });
+
+    }
+    private void openMapScreen(){
+        Intent intent = new Intent(this,MapSelectionScreen.class);
+        startActivity(intent);
     }
 
 }

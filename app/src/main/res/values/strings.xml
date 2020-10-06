@@ -1,26 +1,11 @@
 <resources>
     <string name="app_name">Three_Five_Seven_DP</string>
+    <string name="label">AÇILIŞ</string>
     <string name="play">PLAY</string>
     <string name="user_name">USER NAME</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_home__page_">Sign in</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
-    <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="title_activity_menu_page">MenuPage</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="user_login_ask_name">Enter Your User Name</string>
+    <string name="register">REGISTER</string>
+    <string name="start">START</string>
+    <string name="rockLisance">"<a href="https://www.freepik.com/vectors/light">Light vector created by brgfx - www.freepik.com</a>"</string>
+    <string name="LicanceBG"><a href='https://www.freepik.com/vectors/background'>Background vector created by Creative_hat - www.freepik.com</a></string>
 </resources>
