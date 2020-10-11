@@ -17,6 +17,12 @@ import com.example.three_five_seven_dp.R;
 
 import java.util.zip.Inflater;
 
+import data.access.FireBaseMapWriter;
+import data.access.FireBaseQueueCreator;
+import data.access.FireBaseWriter;
+import game.Player;
+import repository.User;
+
 public class MapsAdapter extends RecyclerView.Adapter<MapsAdapter.MapsHolder> {
     private String[] names;
     private int[] logos;
@@ -47,6 +53,10 @@ public class MapsAdapter extends RecyclerView.Adapter<MapsAdapter.MapsHolder> {
             public void onClick(View v) {
                 selectGameType();
                 Intent intent = new Intent(context, GameBoard.class);
+
+                FireBaseQueueCreator fireBaseQueueCreator = new FireBaseQueueCreator("3game");
+                User user = new User("ert",false);
+                fireBaseQueueCreator.removeFromQueue(user);
                 context.startActivity(intent);
             }
         });

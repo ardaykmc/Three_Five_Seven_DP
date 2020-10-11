@@ -14,9 +14,9 @@ public class Referee {
     private GameBoard gameBoard;
     private List<IRule> ruleList  = new ArrayList<>();
     private Layout layout;
-    public Referee(List<IRule> ruleList, String mapPath, Context context, Player player1, Player player2) throws IOException {
+    public Referee(List<IRule> ruleList, Context context, Player player1, Player player2,Layout layout) {
         this.ruleList = ruleList;
-        this.layout = new Layout(mapPath,context);
+        this.layout = layout;
         this.gameBoard = new GameBoard(layout,player1,player2);
     }
 

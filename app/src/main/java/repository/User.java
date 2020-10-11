@@ -27,8 +27,12 @@ public class User implements IUser {
         return this.userName;
     }
 
-
-
+    public User(String USER_ID, String userName, GoldPackage goldPackage, boolean status) {
+        this.USER_ID = USER_ID;
+        this.userName = userName;
+        this.goldPackage = goldPackage;
+        this.status = status;
+    }
 
     public void setUserName(String userName) {
         this.userName = userName;

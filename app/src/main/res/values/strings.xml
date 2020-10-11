@@ -8,4 +8,7 @@
     <string name="start">START</string>
     <string name="rockLisance">"<a href="https://www.freepik.com/vectors/light">Light vector created by brgfx - www.freepik.com</a>"</string>
     <string name="LicanceBG"><a href='https://www.freepik.com/vectors/background'>Background vector created by Creative_hat - www.freepik.com</a></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
